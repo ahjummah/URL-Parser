@@ -6,11 +6,6 @@
    *    function behaves as specified in the instructions. Have fun! :)
    **/
 
-   /* DEFAULT PORTS
-      HTTP: 80
-      HTTPS: 443
-  */
-
   function parse(url) {
 
       var protocol = getScheme(url);
@@ -30,9 +25,7 @@
 
 
   function getScheme(url){
-
       return url.split(":")[0];
-
   }
 
   function getAuthority(url){
@@ -73,7 +66,6 @@
        hostname =null;
        portname = null;
 
-       //IF THAT IS GREATER THAN 2 AND THE NEXT CHARACTER AFTER / IS NOT EMPTY THEN IT HAS A PATH AND A HOST ELSE IT'S JUST A PATH
        var size = tmp.split("/").length;
        var c = url.charAt(url.lastIndexOf("/")+1);
        if (tmp.includes(":")) {
@@ -131,7 +123,6 @@
 
       if (pathname=="")
         pathname="/";
-
       return pathname;
     }
     else {
@@ -148,12 +139,8 @@
 
       if (pathname=="")
         pathname="/";
-
       return pathname;
     }
-
-
-
   }
 
   function getQuery(url){
