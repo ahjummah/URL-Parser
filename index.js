@@ -120,24 +120,37 @@
     var tmp;
     if(url.includes("//")){
       tmp = url.split("://")[1];
+      var pathname = tmp.substr(tmp.indexOf("/"));
+
+      if (pathname.includes("?")){
+        pathname = pathname.split("?")[0];
+      }
+      if (pathname.includes("#")) {
+          pathname = pathname.split("#")[0];
+      }
+
+      if (pathname=="")
+        pathname="/";
+
+      return pathname;
     }
     else {
-      tmp = url.split(":/")[1];
+      tmp = url.split(":");
+      console.log(tmp[1]);
+      var pathname = tmp[1];
+
+      if (pathname.includes("?")){
+        pathname = pathname.split("?")[0];
+      }
+      if (pathname.includes("#")) {
+          pathname = pathname.split("#")[0];
+      }
+
+      if (pathname=="")
+        pathname="/";
+
+      return pathname;
     }
-    var pathname = tmp.substr(tmp.indexOf("/"));
-
-
-    if (pathname.includes("?")){
-      pathname = pathname.split("?")[0];
-    }
-    if (pathname.includes("#")) {
-        pathname = pathname.split("#")[0];
-    }
-
-    if (pathname=="")
-      pathname="/";
-
-    return pathname;
 
 
 
@@ -166,10 +179,11 @@
     }
   }
 
-
   function getFragment(url){
-    if (url.split("#")[1]!=null) {
-      return url.split("#")[1];
+    if (url.includes("#")) {
+      if (url.split("#")[1]!=null) {
+        return url.split("#")[1];
+      }
     }
     else {
       return null;
