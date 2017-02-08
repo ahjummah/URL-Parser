@@ -17,7 +17,6 @@
       var auth = getAuthority(url);
       var pathname = getPath(url);
       var query = getQuery(url);
-      console.log(query);
       var frag = getFragment(url);
 
       return {
@@ -60,10 +59,10 @@
         portname = portname[1];
       }else {
         if (url.split(":")[0]=="http") {
-          portname = 80;
+          portname = '80';
         }
         else if (url.split(":")[0]=="https") {
-          portname = 443;
+          portname = '443';
         }
       }
 
@@ -85,20 +84,18 @@
          }
        }
        else {
-        //  console.log(tmp.split("/"));
          if (size>1 ) {
            if (tmp.split("/")[size-1].includes("?")||tmp.split("/")[size-1].includes("#")) {
-            //  console.log(tmp + " "+ "hostname ok");
              hostname = tmp.split("/")[0];
              if (hostname.includes(":")) {
                portname = hostname.split(":")[1];
              }
              else {
                if (url.split(":")[0]=="http") {
-                 portname = 80;
+                 portname = '80';
                }
                else if (url.split(":")[0]=="https") {
-                 portname = 443;
+                 portname = '443';
                }
              }
            }
@@ -127,7 +124,6 @@
     else {
       tmp = url.split(":/")[1];
     }
-    // console.log(tmp);
     var pathname = tmp.substr(tmp.indexOf("/"));
 
 
