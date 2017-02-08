@@ -3,7 +3,6 @@ chai.config.truncateThreshold = 0;
 
 var testCases = {
   'http://user:pass@foo:21/bar#c': 'http|user|pass|foo|21|/bar|^|c',
-  'http://jessa:cabigas@yahoo.com/file?name=jessa&last=cabigas': 'http|jessa|cabigas|yahoo.com|80|/file|name=jessa,last=cabigas|^',
   'http://f:00000000000000/c': 'http|^|^|f|0|/c|^|^',
   'http://foo.com:b@d/': 'http|foo.com|b|d|80|/|^|^',
   'foo:/': 'foo|^|^|^|^|/|^|^',
