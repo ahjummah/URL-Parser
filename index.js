@@ -16,17 +16,16 @@
       var protocol = getScheme(url);
       var auth = getAuthority(url);
       var pathname = getPath(url);
-      var queries = getQuery(url);
-      console.log(queries);
-      // var l = queries.a;
-      // var frag = getFragment(url);
+      var query = getQuery(url);
+      console.log(query);
+      var frag = getFragment(url);
 
       return {
         scheme: protocol,
         authority: auth,
         path: pathname,
-        queries,
-        // fragment: frag
+        query,
+        fragment: frag
       };
   }
 
@@ -173,5 +172,10 @@
 
 
   function getFragment(url){
-    return url.split("#")[1];
+    if (url.split("#")[1]!=null) {
+      return url.split("#")[1];
+    }
+    else {
+      return null;
+    }
   }
