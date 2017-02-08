@@ -160,11 +160,11 @@
         q = decodeURIComponent(q);
     }
 
-    var queries = q.split("=");
-    var a = queries[0];
-    return{
-      a: queries[1]
-    };
+    var temp = q.split("=");
+    var query = {};
+    query[temp[0]] = temp[1];
+    return query;
+
     }else {
       return null;
     }
