@@ -127,7 +127,6 @@
     }
     else {
       tmp = url.split(":");
-      console.log(tmp[1]);
       var pathname = tmp[1];
 
       if (pathname.includes("?")){
@@ -151,16 +150,35 @@
       }else {
         q =  url.split("?")[1];
       }
+      if (q.includes("&")) {
+        var query = {};
+        var queries = q.split("&");
+        var j = 0;
+        for (var i = 0; i < queries.length; i++) {
 
+          console.log(i+ " : "+queries[i]);
+          var tmp = queries[i].split("=");
+          console.log(tmp)
+          query[tmp[j]] = tmp[j+1];
+          
+        }
+
+        console.log(query);
+        return query;
+
+      }
+
+    else{
     if (q.includes("%")) { //THERE'S A UTF-8 DECODING REQUIREMENT
         q = decodeURIComponent(q);
     }
+
 
     var temp = q.split("=");
     var query = {};
     query[temp[0]] = temp[1];
     return query;
-
+    }
     }else {
       return null;
     }
