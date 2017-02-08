@@ -23,7 +23,6 @@
       };
   }
 
-
   function getScheme(url){
       return url.split(":")[0];
   }
@@ -39,7 +38,6 @@
     }
 
     if (tmp.includes("@")) {
-        //AFTER PROTOCOL IS THE USER:PASS@HOST:PORT
       user = tmp.split(":")[0];
       if (user.includes("%")) { //THERE'S A UTF-8 DECODING REQUIREMENT
         alert(decodeURIComponent(user));
@@ -60,7 +58,6 @@
       }
 
     }else {
-       //AFTER PROTOCOL IS THE HOST
        user = null;
        pass = null;
        hostname =null;
@@ -155,15 +152,11 @@
         var queries = q.split("&");
         var j = 0;
         for (var i = 0; i < queries.length; i++) {
-
-          console.log(i+ " : "+queries[i]);
           var tmp = queries[i].split("=");
-          console.log(tmp)
           query[tmp[j]] = tmp[j+1];
-          
+
         }
 
-        console.log(query);
         return query;
 
       }
