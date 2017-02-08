@@ -18,14 +18,14 @@
       var pathname = getPath(url);
       var queries = getQuery(url);
       console.log(queries);
-      var l = queries.a;
+      // var l = queries.a;
       // var frag = getFragment(url);
 
       return {
         scheme: protocol,
         authority: auth,
         path: pathname,
-        queries
+        queries,
         // fragment: frag
       };
   }
@@ -104,7 +104,7 @@
              }
            }
            else {
-            //  console.log(tmp+ " "+"no")
+            //  do nothing
            }
          }
          else if(size==1){
@@ -164,7 +164,7 @@
     var queries = q.split("=");
     var a = queries[0];
     return{
-      queries[0]:queries[1]
+      a: queries[1]
     };
     }else {
       return null;
